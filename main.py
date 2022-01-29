@@ -72,8 +72,11 @@ def plugins(name,functionCall):
   try:
     __import__("plugins."+name+"."+name)
     plugin = sys.modules["plugins."+name+"."+name]
+    attribs = {"privLevel":getattr(plugin,"privLevel"),"pubFuncs":getattr(plugin,"publicLinks")}
     login = L.isLoggedIn(request)
-    if U.canAccessPlugin(login[1],getattr(plugin,"privLevel")) == 0 :
+    if U.canAccessPlugin(login[1],attribs["privLevel"]) == 0 :
+      return UT.the404page(login[1],True)
+    if P.canAccessFunctionCall(functionCall,attribs["pubFuncs"]) == 0:
       return UT.the404page(login[1],True)
     func = getattr(plugin,functionCall)
     pluginReturnHTML = str(func(request))

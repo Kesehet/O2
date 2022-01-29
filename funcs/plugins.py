@@ -25,7 +25,11 @@ def getHomeLink(name):
   return SettingUrlToMain(name)
   
 
-
+def canAccessFunctionCall(funcName,publicList):
+  for fc in publicList:
+    if funcName == fc:
+      return 1    
+  return 0
 
 def SettingUrlToMain(name):
   return S.Urls["plugin"].replace("<name>",name).replace("<functionCall>","main")

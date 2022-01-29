@@ -2,6 +2,10 @@ name = "adder"
 description = "I am a simple addition plugin that calculates addition of two numbers."
 fa_icon = "plus"
 privLevel = 0
+publicLinks = [
+  "main",
+  "mresult"
+]
 
 
 from funcs import settings as S
@@ -24,7 +28,7 @@ def template(result):
       <input name="n2" type="number">
       <input type="submit">
     </form>
-    '''+result+'''
+    '''+str(result)+'''
   </div>
   '''
 
