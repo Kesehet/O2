@@ -10,5 +10,5 @@ Log Types
 
 
 
-def writeLog(event,logType,error):
-  print(event,logType+":",error)
+def writeLog(fileOrPlugin,logType,log):
+  print(fileOrPlugin,logType+":",log)

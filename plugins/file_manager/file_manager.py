@@ -11,7 +11,12 @@ import os
 pluginSettings = {"showHiddenFiles":False,"base":"/home/runner/O2/"}
 
 def main(request):
-  return template(request.args.get("dir"))
+  showDir = request.args.get("dir")
+  if showDir == None:
+    showDir = ""
+  if (showDir.find("/funcs") >= 0 or showDir.find("/templates") >= 0 )and U.getUserLevelFromRequest(request) < 1:
+    return "ACCESS DENIED"
+  return template(showDir)
 
 def showFile(request):
   ret = ""
@@ -52,12 +57,13 @@ def showFile(request):
   '''
 
 
-
+from funcs import users as U
 
 def template(showDir):
   if showDir == None:
     showDir = ""
   print(showDir)
+  
   foldersHTML = getAllFoldersTemplate(showDir)
   filesHTML = getAllFilesTemplate(showDir)
 
