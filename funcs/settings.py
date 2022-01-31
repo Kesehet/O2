@@ -19,3 +19,6 @@ gClientId = "342128468133-la93ntc9t4ibnlq74h27brckpsj32n5u.apps.googleuserconten
 encryptionKey = "iu6pxcSjuDt7TuGx_Y-iHQqp6h-9tlbh_b-cXKDuJUM="
 
 invalidUserMessage = "You really shouldn't be here !"
+
+
+favicon = "https://purelifi.com/wp-content/uploads/2018/10/O2-logo.png"

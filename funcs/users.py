@@ -1,3 +1,6 @@
+from . import login as L
+
+
 Users = [
   {
     "email":"hamood.siddiqui@gmail.com",
@@ -17,5 +20,10 @@ def canAccessPlugin(email,pluginLevel):
   return 0
 
 
-
-
+def getUserLevelFromRequest(request):
+  email = L.isLoggedIn(request)[1]
+  for user in getAllUsers():
+    if email == user["email"]:
+      return user["level"]
+  return None
+  

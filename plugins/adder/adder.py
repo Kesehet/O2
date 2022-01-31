@@ -9,14 +9,18 @@ publicLinks = [
 
 
 from funcs import settings as S
-
+from funcs import users as U
 
 
 def main(request):
   return template("")
 
 def mresult(request):
-  ans = "<h1> Result: "+str(int(request.form.get("n1"))+int(request.form.get("n2")))+"</h1>"
+  x = int(request.form.get("n1")) + int(request.form.get("n2"))
+  if x > 100 and U.getUserLevelFromRequest(request) < 1:
+    ans = "<h1> You Dont have enough privilege to run this task.</h1>"
+  else:
+    ans = "<h1> Result: "+str(x)+"</h1>"
   return template(ans)
 
 def template(result):

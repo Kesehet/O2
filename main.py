@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, make_response
+from flask import Flask, render_template, request, make_response,send_from_directory
 from waitress import serve
 import funcs.settings as S
 import funcs.logger as Log
@@ -25,6 +25,7 @@ app = Flask( # Create a flask app
 	template_folder='templates', # Name of html file folder
 	static_folder='static' )
 app.secret_key = os.environ.get("SECRET_KEY") or os.urandom(24)
+
 
 @app.route("/")
 def main():
@@ -92,4 +93,3 @@ def plugins(name,functionCall):
 
 app.run(host=PRIVATE_IP_ADDRESS,debug=True)
 #serve(app,host=PRIVATE_IP_ADDRESS)
-

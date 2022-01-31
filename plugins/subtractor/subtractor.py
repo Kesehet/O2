@@ -1,7 +1,7 @@
 name = "subtractor"
 description = "I am a simple subtraction plugin that calculates the difference between two numbers."
 fa_icon = "minus"
-privLevel = 1
+privLevel = 0
 publicLinks = [
   "main",
   "mresult"
